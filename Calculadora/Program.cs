@@ -13,7 +13,7 @@ public class Program
     {
         Console.WriteLine("Calculadora");
         Console.WriteLine("Digite uma das opções abaixo:");
-        Console.WriteLine("1 - Adição\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Porcentagem");
+        Console.WriteLine("1 - Adição\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Porcentagem\n6 - Potência");
 
         int escolha = int.Parse(Console.ReadLine()!);
 
@@ -36,6 +36,9 @@ public class Program
                 break;
             case 5:
                 porcentagem();
+                break;
+            case 6:
+                potencia();
                 break;
             default:
                 erro();
@@ -65,6 +68,7 @@ public class Program
             int b = int.Parse(Console.ReadLine()!);
             int valor = a + b;
             Console.WriteLine($"A soma desses números é igual a: {valor}");
+            aguardar();
         }
 
         /*
@@ -78,6 +82,7 @@ public class Program
             int b = int.Parse(Console.ReadLine()!);
             int valor = a - b;
             Console.WriteLine($"A subtração desses números é igual a: {valor}");
+            aguardar();
         }
 
         /*
@@ -91,6 +96,7 @@ public class Program
             int b = int.Parse(Console.ReadLine()!);
             int valor = a * b;
             Console.WriteLine($"A multiplicação desses números é igual a: {valor}");
+            aguardar();
         }
 
         /*
@@ -104,7 +110,7 @@ public class Program
             float b = float.Parse(Console.ReadLine()!);
             float valor = a / b;
             Console.WriteLine($"A divisão desses números é igual a: {valor:F2}");
-            ;
+            aguardar();
         }
 
         /*
@@ -118,6 +124,30 @@ public class Program
             float b = float.Parse(Console.ReadLine()!);
             float valor = a * b / 100;
             Console.WriteLine($"{a}% de {b} é igual a: {valor}");
+            aguardar();
+        }
+
+        /*
+            Função de potência: pede 2 números para o usuário digitar e mostra o resultado do primeiro número elevado ao segundo número.
+        */
+        static void potencia()
+        {
+            Console.Write("Digite a base: ");
+            double a = double.Parse(Console.ReadLine()!);
+            Console.Write("Digite o expoente: ");
+            double b = double.Parse(Console.ReadLine()!);
+            double valor = Math.Pow(a, b);
+            Console.WriteLine($"{a} elevado a {b} é igual a: {valor}");
+            aguardar();
+        }
+
+        /*
+            Função de aguardar: após mostrar o resultado da operação aparecerá uma mensagem ao usuário e é só clicar em alguma tecla para fechar o terminal.
+        */
+        static void aguardar()
+        {
+            Console.WriteLine("Pressione qualquer tecla para sair");
+            Console.ReadKey();
         }
     }
 }
